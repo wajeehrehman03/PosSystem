@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "PosWebApi": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:61720;http://localhost:61721"
+    }
+  }
+}

@@ -1,0 +1,166 @@
+:root {
+  /* ---- Design system: zinc-dark surfaces + indigo-500 accent ---- */
+  --bg: #09090b;
+  --bg-subtle: #131316;
+  --panel-bg: #18181b;
+  --border: #27272a;
+  --border-strong: #3f3f46;
+
+  --text: #a1a1aa;
+  --text-muted: #71717a;
+  --text-h: #f4f4f5;
+  --on-accent: #ffffff;
+  --on-danger: #ffffff;
+
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-bg: rgba(99, 102, 241, 0.12);
+  --accent-glow: rgba(99, 102, 241, 0.22);
+  --accent-glow-2: rgba(232, 121, 249, 0.14);
+  --accent-gradient: linear-gradient(135deg, #818cf8, #6366f1);
+  --panel-gradient: linear-gradient(165deg, #1c1c20, #18181b);
+
+  --success: #34d399;
+  --success-hover: #6ee7b7;
+  --success-bg: rgba(52, 211, 153, 0.14);
+  --success-border: rgba(52, 211, 153, 0.35);
+  --success-text: #6ee7b7;
+  --success-glow: rgba(52, 211, 153, 0.18);
+
+  --danger: #fb7185;
+  --danger-hover: #fda4af;
+  --danger-bg: rgba(251, 113, 133, 0.14);
+  --danger-gradient: linear-gradient(135deg, #fb7185, #e11d48);
+
+  --warning-bg: rgba(253, 230, 138, 0.12);
+  --warning-border: rgba(253, 230, 138, 0.35);
+  --warning-text: #fde68a;
+
+  --error-bg: rgba(252, 165, 165, 0.12);
+  --error-border: rgba(252, 165, 165, 0.35);
+  --error-text: #fca5a5;
+
+  --low-stock-bg: var(--warning-bg);
+
+  --focus-ring: rgba(99, 102, 241, 0.2);
+
+  /* ---- Scales ---- */
+  --radius-sm: 8px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-accent: 0 8px 24px -6px rgba(99, 102, 241, 0.4);
+  --shadow-danger: 0 8px 24px -6px rgba(251, 113, 133, 0.35);
+
+  font: 15px/1.5 system-ui, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* A faint, fixed color wash across the whole app - two soft brand-color blobs pinned to the
+     viewport corners so every page (not just login) feels like it belongs to the same palette,
+     without ever competing with foreground content (panels sit fully opaque on top of it). */
+  background-image: radial-gradient(circle at 0% 0%, var(--accent-glow), transparent 32%),
+    radial-gradient(circle at 100% 100%, var(--accent-glow-2), transparent 38%);
+  background-attachment: fixed;
+  background-color: var(--bg);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-h);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ---- Buttons ---- */
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  transition: all 150ms ease;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* ---- Form inputs / controls ---- */
+input,
+select {
+  font: inherit;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  color: var(--text-h);
+  transition: all 150ms ease;
+}
+
+/* Consistent, visible keyboard-focus ring across every interactive element,
+   replacing the browser's inconsistent default outline. */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+::selection {
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+/* Custom scrollbar for the app's scrollable panes (cart list, receipt preview). */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border-strong);
+  border-radius: var(--radius-full);
+}
